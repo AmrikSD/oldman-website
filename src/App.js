@@ -26,7 +26,7 @@ class App extends Component {
 			<Router>
 				<div className="container">
 				
-					<nav className="navbar navbar-expand-lg navbar-light bg-light">
+					<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 					
 										
 					<Link to="/" className="navbar-brand">OldMan Bot</Link>

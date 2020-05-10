@@ -134,11 +134,9 @@ export default class EditBannedWordst extends Component {
 					<br />
 					<div className="form-group">
                         			<input type="submit" value="Update Word" className="btn btn-primary" />
+						<input type="submit" value="Remove Word" className="btn btn-danger" onClick={this.onDelete}/>
 					</div>
                 		</form>
-				<form onSubmit={this.onDelete}>
-					<input type="submit" value="Remove Word" className="btn btn-danger"/>
-				</form>
 			</div>
 		)
 	}
