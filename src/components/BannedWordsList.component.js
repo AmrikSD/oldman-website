@@ -7,7 +7,7 @@ const Word = props => (
 		<td>{props.word.word}</td>
 		<td>{props.word.punishment}</td>
 		<td>
-            		<Link to={"/edit/"+props.word._id}>Edit</Link>
+            		<Link to={"BannedWords/edit/"+props.word._id}>Edit</Link>
         	</td>
 	</tr>
 )
@@ -53,6 +53,12 @@ export default class BannedWordList extends Component {
 						{ this.bannedWordsList() }
 					</tbody>
 				</table>
+
+			<Link to="/BannedWords/Create/">
+				<button type="button" class="btn btn-primary btn-lg btn-block">
+				Add Words
+				</button>
+			</Link>
 			</div>
 		)
 	    }
