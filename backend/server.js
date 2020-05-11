@@ -80,7 +80,6 @@ wordRoutes.route('/add').post(function(req, res) {
 });
 
 app.use('/words', wordRoutes);
-
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });

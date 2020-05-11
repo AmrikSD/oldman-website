@@ -9,13 +9,11 @@ import EditWord from "./components/EditWord.component";
 import BannedList from "./components/BannedWordsList.component";
 
 
-
 //import logo from "./logo.png";
 
 //<a class="navbar-brand" href="amrik.de" target="_blank">
 //	<img src={logo} width="30" height="30"/>
 //</a>
-
 
 class App extends Component {
 
@@ -25,17 +23,13 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="container">
-				
+
 					<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-					
 										
 					<Link to="/" className="navbar-brand">OldMan Bot</Link>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
-					</button>
-					
-					
-
+					</button>	
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
 							<li className="navbar-item">
@@ -51,6 +45,7 @@ class App extends Component {
 					<Route path="/BannedWords" exact component={BannedList} />
 					<Route path="/BannedWords/Edit/:id" component={EditWord} />
 					<Route path="/BannedWords/Create" component={CreateWord} />
+				
 				</div>
 			</Router>
 		)

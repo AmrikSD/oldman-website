@@ -86,17 +86,22 @@ export default class EditBannedWordst extends Component {
 
 		return (
 			<div>
-				<h3 align="center">Update Banned Word: {this.state.word}</h3>
-				<form onSubmit={this.onSubmit}>
-                    			<div className="form-group"> 
-                        			<label>Word: </label>
-                        			<input  type="text"
+				<h3 align="center">Update Banned Word</h3>		
+					<form onSubmit={this.onSubmit}>
+                    			<div className="form-group">
+						<div class="form-group row">
+                        			<label for="inputWordText" class="col-sm-2 col-form-label">Word: </label>
+                        			<input  class="form-control" id="inputWordText" type="text"
                                 			className="form-control"
                                 			value={this.state.word}
                                 			onChange={this.onChangeWord}
                                			/>
+						</div>
 					</div>
                    			<div className="form-group">
+						<div class="row">
+						<legend class="col-form-label col-sm-2 pt-0">Punishment: </legend>
+						<div class="col-sm-10">
                         			<div className="form-check form-check-inline">
                            	 			<input  className="form-check-input" 
                                     				type="radio" 
@@ -130,6 +135,8 @@ export default class EditBannedWordst extends Component {
                                     			/>
                             				<label className="form-check-label">Ban</label>
                         			</div>
+						</div>
+						</div>
 					</div>
 					<br />
 					<div className="form-group">
