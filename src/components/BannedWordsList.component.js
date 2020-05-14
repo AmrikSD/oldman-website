@@ -7,7 +7,7 @@ const Word = props => (
 		<td>{props.word.word}</td>
 		<td>{props.word.punishment}</td>
 		<td>
-            		<Link to={"BannedWords/edit/"+props.word._id}>Edit</Link>
+            		<Link to={"BannedWords/edit/"+props.word._id} class="text-dark text-decoration-none">Edit</Link>
         	</td>
 	</tr>
 )
@@ -39,27 +39,35 @@ export default class BannedWordList extends Component {
 	render() {
 		
 		return (
-			<div>
-				<h3>Banned Words</h3>
-				<table className="table table-striped" style={{ marginTop: 20 }} >
-					<thead>
-						<tr>
-							<th>Word</th>
-							<th>Punishment</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						{ this.bannedWordsList() }
-					</tbody>
-				</table>
-
-			<Link to="/BannedWords/Create/">
-				<button type="button" class="btn btn-primary btn-lg btn-block">
-				Add Words
-				</button>
-			</Link>
-			</div>
+			
+			<main style={{minHeight:"500hv"}} role="main" class="flex-shrink-0">
+				<div class="jumbotron jumbotron-fluid text-center">
+				<h1 class="display-4">OldMan Bot Dashboard</h1>
+				</div>
+				<br />
+				<h1 class="text-light text-center">Auto-Mod Words</h1>
+				
+				<div class="col-auto mx-auto text-center" style={{width: "70%"}}>
+					<table className="table table-light table-striped" style={{ marginTop: 20 }} >
+						<thead>
+							<tr>
+								<th style={{width:"33%"}}>Word</th>
+								<th style={{width:"33%"}}>Punishment</th>
+								<th style={{width:"33%"}}>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							{ this.bannedWordsList() }
+						</tbody>
+					</table>
+	
+				<Link to="/BannedWords/Create/">
+					<button type="button" class="btn btn-light btn-lg btn-block">
+						Add Words
+					</button>
+				</Link>
+				</div>
+			</main>
 		)
 	    }
 }
