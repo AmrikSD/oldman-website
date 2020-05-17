@@ -19,8 +19,6 @@ import Index from "./components/Index.component";
 class App extends Component {
 
 	render() {
-
-		
 		return (
 			<Router>
 				<div class="d-flex flex-column h-100 bg-dark">
@@ -33,21 +31,18 @@ class App extends Component {
 						<div id="my-nav" class="collapse navbar-collapse">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item ">
-									<a class="nav-link active" href="/">Home<span class="sr-only"></span></a>
+									<a class="nav-link active" href="/"><i class="fas fa-home"></i>  Home<span class="sr-only"></span></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link active" href="/BannedWords">Banned Words<span class="sr-only"></span></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="https://github.com/AmrikSD/OldManBot/commits/master">Changelog<span class="sr-only"></span></a>
+									<a class="nav-link" href="https://github.com/AmrikSD/OldManBot/commits/master"><i class="fas fa-copy"></i>  Changelog<span class="sr-only"></span></a>
 								</li>
 								<li class="nav-item ">
-									<a class="nav-link" href="https://github.com/AmrikSD/OldManBot">Github<span class="sr-only"></span></a>
+									<a class="nav-link" href="https://github.com/AmrikSD/OldManBot"><i class="fab fa-github"></i>  Github<span class="sr-only"></span></a>
 								</li>
 							</ul>
 							<ul class="navbar-nav ml-auto">
 								<li class="nav-item">
-									<a href="dashboard.html" class="btn btn-light" type="button">Sign In</a>
+									<a class="btn btn-light" type="button"><i class="fas fa-arrow-circle-right"></i>  Sign In</a>
 								</li>
 							</ul>
 						</div>
@@ -62,18 +57,16 @@ class App extends Component {
 					<Route path="/BannedWords/Create" component={CreateWord} />
 					</Switch>
 			</div>
-				  <footer class="footer mt-auto py-3 border-top" style={{left:"0",bottom:"0",position:"fixed", width:"100%"}}>
-    <div class="container-fluid text-right">
-      <a href="#"><img
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsonicrunway.herokuapp.com%2Fimg%2Ficons%2Ftwitter-logo-white-transparent.png&f=1&nofb=1"
-          style={{width: "20px", height:"auto"}}/></a>
-      <a href="#"><img
-          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.bacterialtakeover.com%2Fwp-content%2Fuploads%2F2018%2F05%2Fdiscord-icon-white.png&f=1&nofb=1"
-          style={{width: "20px", height:"auto"}}/></a>
-      <a href="#"><img src="https://www.iconsdb.com/icons/preview/white/github-11-xxl.png"
-          style={{width: "20px", height:"auto"}}/></a>
+			
+			  <footer class="footer mt-auto py-3">
+    <div class="container-fluid text-right align-middle">
+      <a href="#"><i style={{color: "white"}} class="fab fa-twitter px-1"></i></a>
+      <a href="#"><i style={{color: "white"}} class="fab fa-discord px-1"></i></a>
+      <a href="#"><i style={{color: "white"}} class="fab fa-github px-1"></i></a>
     </div>
   </footer>
+
+
 			</Router>
 		)
 	}

@@ -15,6 +15,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "font-awesome": "^4.7.0",
+    "fontawesome": "^5.6.3",
     "jquery": "^3.5.1",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",

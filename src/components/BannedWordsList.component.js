@@ -39,35 +39,46 @@ export default class BannedWordList extends Component {
 	render() {
 		
 		return (
-			
-			<main style={{minHeight:"500hv"}} role="main" class="flex-shrink-0">
-				<div class="jumbotron jumbotron-fluid text-center">
-				<h1 class="display-4">OldMan Bot Dashboard</h1>
-				</div>
-				<br />
-				<h1 class="text-light text-center">Auto-Mod Words</h1>
-				
-				<div class="col-auto mx-auto text-center" style={{width: "70%"}}>
-					<table className="table table-light table-striped" style={{ marginTop: 20 }} >
-						<thead>
-							<tr>
-								<th style={{width:"33%"}}>Word</th>
-								<th style={{width:"33%"}}>Punishment</th>
-								<th style={{width:"33%"}}>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							{ this.bannedWordsList() }
-						</tbody>
-					</table>
-	
-				<Link to="/BannedWords/Create/">
-					<button type="button" class="btn btn-light btn-lg btn-block">
-						Add Words
-					</button>
-				</Link>
-				</div>
-			</main>
+
+			<main role="main" class="flex-shrink-0">
+    <div class="bg-light p-5">
+      <div class="container text-center text-dark">
+        <div>
+          <h1 class="display-4">OldMan Bot Dashboard</h1>
+          <hr class="my-4" />
+          <div class="">
+            <div class="container text-center text-dark">
+              <h1 class="text-dark text-center font-weight-light">Auto-Mod Words</h1>
+              <div class="col-auto mx-auto">
+
+                <table class="table bg-light table-light table-striped">
+                  <thead>
+                    <tr>
+                      <th style={{width: "33%"}}>Word</th>
+                      <th style={{width: "33%"}}>Punishment</th>
+                      <th style={{width: "33%"}}>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+			{ this.bannedWordsList() }
+                  </tbody>
+                </table>
+			<Link to="/BannedWords/Create/">
+                	<button class="btn btn-outline-dark btn-lg btn-block" type="button">Add Words</button>
+			</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </main>
+
+
+
 		)
 	    }
 }
