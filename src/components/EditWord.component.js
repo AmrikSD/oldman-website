@@ -2,160 +2,159 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 export default class EditBannedWordst extends Component {
-	
-	constructor(props) {
-		
-		super(props)
-		
-		this.onChangeWord = this.onChangeWord.bind(this)
-		this.onChangePunishment = this.onChangePunishment.bind(this)
-		
-		this.onSubmit = this.onSubmit.bind(this)
-		this.onDelete = this.onDelete.bind(this)
 
-		this.state = {
-			word: '',
-			punishment: ''
-		}
-	}
+  constructor(props) {
 
-	componentDidMount(){
-		axios.get('http://localhost:4000/words/'+this.props.match.params.id)
-			.then(response => {
+    super(props)
 
-				this.setState({
-					word: response.data.word,
-					punishment: response.data.punishment
-				})
+    this.onChangeWord = this.onChangeWord.bind(this)
+    this.onChangePunishment = this.onChangePunishment.bind(this)
 
-			}).catch(function (error){
-				console.log(error)
-			})
-	}
+    this.onSubmit = this.onSubmit.bind(this)
+    this.onDelete = this.onDelete.bind(this)
 
-	onChangeWord(e){
-		this.setState({
-			word: e.target.value
-		})
-	}
+    this.state = {
+      word: '',
+      punishment: ''
+    }
+  }
 
-	onChangePunishment(e){
-		this.setState({
-			punishment: e.target.value
-		})
-	}
+  componentDidMount() {
+    axios.get('http://localhost:4000/words/' + this.props.match.params.id)
+      .then(response => {
 
-	onSubmit(e){
-		e.preventDefault()
+        this.setState({
+          word: response.data.word,
+          punishment: response.data.punishment
+        })
 
-		const obj = {
-			word: this.state.word,
-			punishment: this.state.punishment
-		}
+      }).catch(function (error) {
+        console.log(error)
+      })
+  }
 
-		console.log(obj)
+  onChangeWord(e) {
+    this.setState({
+      word: e.target.value
+    })
+  }
 
-		axios.post('http://localhost:4000/words/update/'+this.props.match.params.id, obj)
-			.then(res => console.log(res.data))
+  onChangePunishment(e) {
+    this.setState({
+      punishment: e.target.value
+    })
+  }
 
-		this.props.history.push('/')
-	}
+  onSubmit(e) {
+    e.preventDefault()
 
-	onDelete(e){
-		e.preventDefault()
+    const obj = {
+      word: this.state.word,
+      punishment: this.state.punishment
+    }
 
-		const obj = {
-			word: this.state.word,
-			punishment: this.state.punishment
-		}
-		
-		console.log(this.props.match.params.id)
+    console.log(obj)
 
-		axios.delete('http://localhost:4000/words/update/'+this.props.match.params.id, obj)
-			.then(res => console.log(res.data))
+    axios.post('http://localhost:4000/words/update/' + this.props.match.params.id, obj)
+      .then(res => console.log(res.data))
+
+    this.props.history.push('/')
+  }
+
+  onDelete(e) {
+    e.preventDefault()
+
+    const obj = {
+      word: this.state.word,
+      punishment: this.state.punishment
+    }
+
+    console.log(this.props.match.params.id)
+
+    axios.delete('http://localhost:4000/words/update/' + this.props.match.params.id, obj)
+      .then(res => console.log(res.data))
 
 
 
-		this.props.history.push('/')
+    this.props.history.push('/')
 
-	}
+  }
 
-	render() {
-		
-		
+  render() {
 
-		return (
 
-  <main role="main" class="flex-shrink-0">
-    <div class="bg-light p-5">
-      <div class="container text-center text-dark">
-        <div>
-          <h1 class="display-4">OldMan Bot Dashboard</h1>
-          <hr class="my-4" />
-          <div class="">
-            <div class="container text-center text-dark">
-              <h1 class="text-dark text-center font-weight-light">Auto-Mod Words</h1>
-              <div class="col-auto mx-auto">
-                <form onSubmit={this.onSubmit}>
-                  <table class="table bg-light table-light table-striped">
-                    <thead>
-                      <tr>
-                        <th style={{width: "33%"}}>Word</th>
-                        <th style={{width: "33%"}}>Punishment</th>
-                        <th style={{width: "33%"}}>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td scope="row">
-                          <input class="form-control form-control-sm" id="inputWordText" type="text"
-                            value={this.state.word} onChange={this.onChangeWord} />
-                        </td>
 
-                        <td>
-                          <div class="btn-group btn-group-toggle" data-toggle="button">
-                            <label class="btn btn-outline-dark btn-sm" >
-                              <input className="form-check-input" type="radio" name="punishmentOptions" id="punishWarn"
-                                value="Warn" checked={this.state.punishment==='Warn' }
-                                onChange={this.onChangePunishment} /> Warn
+    return (
+      <main role="main" className="flex-shrink-0">
+        <div className="bg-light p-5">
+          <div className="container text-center text-dark">
+            <div>
+              <h1 className="display-4">OldMan Bot Dashboard</h1>
+              <hr className="my-4" />
+              <div className="">
+                <div className="container text-center text-dark">
+                  <h1 className="text-dark text-center font-weight-light">Auto-Mod Edit Word</h1>
+                  <div className="col-auto mx-auto">
+                    <form onSubmit={this.onSubmit}>
+                      <table className="table bg-light table-light table-striped">
+                        <thead>
+                          <tr>
+                            <th style={{ width: "33%" }}>Word</th>
+                            <th style={{ width: "33%" }}>Punishment</th>
+                            <th style={{ width: "33%" }}>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td >
+                              <input className="form-control form-control-sm" id="inputWordText" type="text"
+                                value={this.state.word} onChange={this.onChangeWord} />
+                            </td>
+
+                            <td>
+                              <div className="btn-group btn-group-toggle" data-toggle="button">
+                                <label className="btn btn-outline-dark btn-sm" >
+                                  <input className="form-check-input" type="radio" name="punishmentOptions" id="punishWarn"
+                                    value="Warn" checked={this.state.punishment === 'Warn'}
+                                    onChange={this.onChangePunishment} /> Warn
                             </label>
-                            <label class="btn btn-outline-dark btn-sm" >
-                              <input className="form-check-input" type="radio" name="punishmentOptions" id="punishKick"
-                                value="Kick" checked={this.state.punishment==='Kick' }
-                                onChange={this.onChangePunishment} /> Kick
+                                <label className="btn btn-outline-dark btn-sm" >
+                                  <input className="form-check-input" type="radio" name="punishmentOptions" id="punishKick"
+                                    value="Kick" checked={this.state.punishment === 'Kick'}
+                                    onChange={this.onChangePunishment} /> Kick
                             </label>
-                            <label class="btn btn-outline-dark btn-sm" >
-                              <input className="form-check-input" type="radio" name="punishmentOptions" id="punishBan"
-                                value="Ban" checked={this.state.punishment==='Ban' }
-                                onChange={this.onChangePunishment} /> Ban
+                                <label className="btn btn-outline-dark btn-sm" >
+                                  <input className="form-check-input" type="radio" name="punishmentOptions" id="punishBan"
+                                    value="Ban" checked={this.state.punishment === 'Ban'}
+                                    onChange={this.onChangePunishment} /> Ban
                             </label>
-                          </div>
-                        </td>
+                              </div>
+                            </td>
 
-                        <td>
-                            <div class="btn-group">
-                              <input type="submit" value="Update Word" class="btn btn-outline-dark btn-sm" />
-                              <input type="button" value="Remove Word" class="btn btn-outline-danger btn-sm"
-                                onClick={this.onDelete} />
-                            </div>
-                          </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </form>
+                            <td>
+                              <div className="btn-group">
+                                <input type="submit" value="Update Word" className="btn btn-outline-dark btn-sm" />
+                                <input type="button" value="Remove Word" className="btn btn-outline-danger btn-sm"
+                                  onClick={this.onDelete} />
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-</div>
-  </main>
-		)
-	
-	}
+      </main>
+    )
+
+  }
 
 }
-   
+
 
 
 

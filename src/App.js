@@ -15,58 +15,46 @@ import Index from "./components/Index.component";
 //	<img src={logo} width="30" height="30"/>
 //</a>
 
-
 class App extends Component {
-
 	render() {
 		return (
 			<Router>
-				<div class="d-flex flex-column h-100 bg-dark">
-					<header>
-						<nav class="navbar navbar-expand-lg navbar-dark">
-						<a class="navbar-brand" href="#">OldMan Bot</a>
-						<button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
+				<header>
+					<nav className="navbar navbar-expand-lg navbar-dark">
+						<Link to={"/"} className="navbar-brand">OldMan Bot</Link>
+						<button className="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div id="my-nav" class="collapse navbar-collapse">
-							<ul class="navbar-nav mr-auto">
-								<li class="nav-item ">
-									<a class="nav-link active" href="/"><i class="fas fa-home"></i>  Home<span class="sr-only"></span></a>
+						<div id="my-nav" className="collapse navbar-collapse">
+							<ul className="navbar-nav mr-auto">
+								<li className="nav-item ">
+									<Link to={"/"} className="nav-link"><i className="fas fa-home"></i> Home<span className="sr-only"></span></Link>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="https://github.com/AmrikSD/OldManBot/commits/master"><i class="fas fa-copy"></i>  Changelog<span class="sr-only"></span></a>
+								<li className="nav-item ">
+									<Link to={"/BannedWords"} className="nav-link"><i className="fas fa-hammer"></i> Dashboard<span className="sr-only"></span></Link>
 								</li>
-								<li class="nav-item ">
-									<a class="nav-link" href="https://github.com/AmrikSD/OldManBot"><i class="fab fa-github"></i>  Github<span class="sr-only"></span></a>
+								<li className="nav-item">
+									<a className="nav-link" href="https://github.com/AmrikSD/OldManBot/commits/master"><i className="fas fa-copy"></i> Changelog<span className="sr-only"></span></a>
 								</li>
-							</ul>
-							<ul class="navbar-nav ml-auto">
-								<li class="nav-item">
-									<a class="btn btn-light" type="button"><i class="fas fa-arrow-circle-right"></i>  Sign In</a>
+								<li className="nav-item">
+									<a className="nav-link" href="https://github.com/AmrikSD/OldManBot"><i className="fab fa-github"></i> Github<span className="sr-only"></span></a>
 								</li>
 							</ul>
 						</div>
-						</nav>
-					</header>
-
-					<br/>
-					<Switch>
+					</nav>
+				</header>
+				<Switch>
 					<Route path="/" exact component={Index} />
 					<Route path="/BannedWords" exact component={BannedList} />
 					<Route path="/BannedWords/Edit/:id" component={EditWord} />
 					<Route path="/BannedWords/Create" component={CreateWord} />
-					</Switch>
-			</div>
-			
-			  <footer class="footer mt-auto py-3">
-    <div class="container-fluid text-right align-middle">
-      <a href="#"><i style={{color: "white"}} class="fab fa-twitter px-1"></i></a>
-      <a href="#"><i style={{color: "white"}} class="fab fa-discord px-1"></i></a>
-      <a href="#"><i style={{color: "white"}} class="fab fa-github px-1"></i></a>
-    </div>
-  </footer>
+				</Switch>
 
-
+				<footer class="footer mt-auto py-3">
+    				<div class="container-fluid text-right">
+						<a href="https://github.com/AmrikSD" className="text-light text-decoration-none"><i style={{ color: "white" }} className="fab fa-github px-1"></i>AmrikSD</a>
+					</div>
+				</footer>
 			</Router>
 		)
 	}
